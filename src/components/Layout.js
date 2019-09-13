@@ -4,15 +4,16 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import './all.sass'
 import useSiteMetadata from './SiteMetadata'
-import { withPrefix } from "gatsby"
+import { withPrefix, graphql } from "gatsby"
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, props }) => {
+  const data = props.data.allFile.edges[0].node.childMarkdownRemark.frontmatter
   const { title, description } = useSiteMetadata()
   return (
     <div>
       <Helmet>
         <html lang="en" />
-        <title>{title}</title>
+        <title>{data.site_title}</title>
         <meta name="description" content={description} />
 
         <link
@@ -53,3 +54,18 @@ const TemplateWrapper = ({ children }) => {
 }
 
 export default TemplateWrapper
+
+export const query = graphql`
+  query {
+    allFile (filter: {sourceInstanceName: {eq: "settings"} name: {eq: "general"}}) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              site_title
+          }
+        }
+      }
+    }
+  }
+}`
