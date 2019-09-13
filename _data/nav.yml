@@ -1,7 +1,13 @@
 topLevelItems:
-  - displayText: 'A Page'
+  - displayText: Home
     itemType: Link
-    url: /a-page/
-  - displayText: 'External Link'
+    url: /
+  - displayText: Services
     itemType: Link
-    url: '/https://google.com'
+    url: '#'
+  - displayText: Case Study
+    itemType: Link
+    url: '#'
+  - displayText: Contact Us
+    itemType: Link
+    url: /contact
