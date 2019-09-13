@@ -7,13 +7,13 @@ import useSiteMetadata from './SiteMetadata'
 import { withPrefix, graphql } from "gatsby"
 
 const TemplateWrapper = ({ children, props }) => {
-  const data = props.data.allFile.edges[0].node.childMarkdownRemark.frontmatter
+  // const data = props.data.allFile.edges[0].node.childMarkdownRemark.frontmatter
   const { title, description } = useSiteMetadata()
   return (
     <div>
       <Helmet>
         <html lang="en" />
-        <title>{data.site_title}</title>
+        <title>{title}</title>
         <meta name="description" content={description} />
 
         <link
@@ -55,17 +55,17 @@ const TemplateWrapper = ({ children, props }) => {
 
 export default TemplateWrapper
 
-export const query = graphql`
-  query {
-    allFile (filter: {sourceInstanceName: {eq: "settings"} name: {eq: "general"}}) {
-      edges {
-        node {
-          childMarkdownRemark {
-            frontmatter {
-              site_title
-          }
-        }
-      }
-    }
-  }
-}`
+// export const query = graphql`
+//   query {
+//     allFile (filter: {sourceInstanceName: {eq: "settings"} name: {eq: "general"}}) {
+//       edges {
+//         node {
+//           childMarkdownRemark {
+//             frontmatter {
+//               title
+//           }
+//         }
+//       }
+//     }
+//   }
+// }`
