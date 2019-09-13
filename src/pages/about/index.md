@@ -1,4 +1,4 @@
 ---
-site_title: DripCreative
+site_title: Drip Creative
 ---
 
