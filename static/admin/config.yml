@@ -61,67 +61,32 @@ collections:
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
 
-  - name: options
-    label: "Sitewide Options"
-    editor:
-      preview: false
-    files:
-      - label: "Navigation Menu"
-        name: nav
-        file: "_data/nav.yml"
-        fields:
-          - label: "Nav Items"
-            label_singular: "Nav Item"
-            name: topLevelItems
-            widget: list
-            fields:
-              - {label: "Display Text", name: displayText, widget: string}
-              - {label: URL, name: url, widget: string}
-              - label: "Item Type"
-                name: itemType
-                widget: select
-                options: ["Link", "Button"]
   - name: 'settings'
     label: 'Settings'
     delete: false # Prevent users from deleting documents in this collection
     editor:
       preview: false
     files:
-      - name: 'general'
+      - file: 'src/pages/about/index.md'
+        name: 'general'
         label: 'Site Settings'
-        file: '_data/settings.json'
         description: 'General Site Settings'
         fields:
-          - { label: 'Global title', name: 'site_title', widget: 'string' }
-          - label: 'Post Settings'
-            name: posts
-            widget: 'object'
-            fields:
-              - {
-                  label: 'Number of posts on frontpage',
-                  name: front_limit,
-                  widget: number,
-                  min: 1,
-                  max: 10,
-                }
-              - { label: 'Default Author', name: author, widget: string }
-              - {
-                  label: 'Default Thumbnail',
-                  name: thumb,
-                  widget: image,
-                  class: 'thumb',
-                  required: false,
-                }
-
-      - name: 'authors'
-        label: 'Authors'
-        file: '_data/authors.yml'
-        description: 'Author descriptions'
+          - { label: 'Site title', name: 'site_title', widget: 'string' }
+          - { label: 'Logo', name: 'logo', widget: image, required: false, }
+      - file: 'src/pages/products/index.md'
+        label: 'Menu Settings'
+        name: 'nav'
         fields:
-          - name: authors
-            label: Authors
-            label_singular: 'Author'
+          - label: 'Menu Items'
+            label_singular: 'Menu Item'
+            name: 'topLevelItems'
             widget: list
             fields:
-              - { label: 'Name', name: 'name', widget: 'string', hint: 'First and Last' }
-              - { label: 'Description', name: 'description', widget: 'markdown' }
+              - { label: 'Display Text', name: 'displayText', widget: 'string' }
+              - { label: 'URL', name: 'url', widget: 'string' }
+              - label: 'Item Type'
+                name: 'itemType'
+                widget: 'select'
+                options: [ 'Link', 'Button' ]
+
