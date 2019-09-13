@@ -67,14 +67,14 @@ collections:
     editor:
       preview: false
     files:
-      - file: 'src/pages/about/index.md'
+      - file: '_data/settings.json'
         name: 'general'
         label: 'Site Settings'
         description: 'General Site Settings'
         fields:
           - { label: 'Site title', name: 'site_title', widget: 'string' }
           - { label: 'Logo', name: 'logo', widget: image, required: false, }
-      - file: 'src/pages/products/index.md'
+      - file: '_data/nav.yml'
         label: 'Menu Settings'
         name: 'nav'
         fields:
