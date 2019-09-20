@@ -1,98 +1,92 @@
-import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import PropTypes from "prop-types"
+import React from "react"
+import logo from "../img/logo.svg"
+import Sidenav from "./Sidenav"
 
 const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor (props) {
+    super(props);
+
     this.state = {
-      active: false,
-      navBarActiveClass: '',
+      scroll: false,
+      toggle: false,
+      dropdowns: {
+        services: false,
+        case_study: false,
+      }
     }
+
+    this.openToggle = this.openToggle.bind(this);
+    this.closeToggle = this.closeToggle.bind(this);
+    this.servicesToggle = this.servicesToggle.bind(this);
+    this.caseToggle = this.caseToggle.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll, true);
+  }
+
+  openToggle = () => {
+    this.setState({ toggle: !this.state.toggle })
+  }
+
+  closeToggle = () => {
+    this.setState({ toggle: false })
+  }
+
+  servicesToggle = () => {
+    this.setState(prevState => ({
+      dropdowns: {
+        services: !prevState.dropdowns.services
       }
-    )
+    }))
+  }
+
+  caseToggle = () => {
+    this.setState(prevState => ({
+      dropdowns: {
+        case_study: !prevState.dropdowns.case_study
+      }
+    }))
+  }
+
+  handleScroll = () => {
+    this.setState({ scroll: (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) });
   }
 
   render() {
     return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="DripCreative" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
+      <>
+        <div className={ `overlay ${this.state.toggle ? 'active' : ''}` }></div>
+        <header className={ `header ${ this.state.scroll ? 'p-0 shadow' : '' }` }>
+          <div className="container">
+            <nav className="navbar navbar-light bg-transparent">
+                <div className="menu-toggle" onClick={ this.openToggle }>
+                  <span></span>
+                </div>
+                <div className="logo">
+                  <Link to="/" className="navbar-item" title="Logo">
+                    <img src={logo} alt="DripCreative" />
+                  </Link>
+                </div>
+                <a href="/" className="btn btn-black btn-glass">get in touch</a>
+            </nav>
           </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+          <Sidenav isToggle={this.state.toggle} closeToggle={ this.closeToggle } servicesToggle={ this.servicesToggle } caseToggle={ this.caseToggle } isServices={ this.state.dropdowns.services } isCase={ this.state.dropdowns.case_study } />
+        </header>
+      </>
     )
   }
+}
+
+Navbar.propTypes = {
+  siteTitle: PropTypes.string,
+}
+
+Navbar.defaultProps = {
+  siteTitle: ``,
 }
 
 export default Navbar
