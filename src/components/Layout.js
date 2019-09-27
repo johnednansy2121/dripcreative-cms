@@ -8,10 +8,6 @@ import PropTypes from 'prop-types'
 import './css/bootstrap.css'
 import './css/layout.scss'
 
-if(window.location.href.includes("admin/#")) {
-  import('./css/all.sass')
-}
-
 const TemplateWrapper = ({ children, props, data }) => {
   console.log(props);
   // const { frontmatter } = data.markdownRemark
@@ -92,41 +88,3 @@ export default TemplateWrapper
 //     }
 //   }
 // }`
-
-export const pageQuery = graphql`
-  query TemplateWrapper {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-      frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
-      }
-    }
-  }
-`
