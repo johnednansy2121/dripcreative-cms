@@ -67,17 +67,19 @@ collections:
     editor:
       preview: false
     files:
-      - file: 'src/settings/general.md'
+      - file: 'src/pages/settings/general.md'
         name: 'general'
         label: 'Site Settings'
         description: 'General Site Settings'
         fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "general" }
           - { label: 'Site title', name: 'site_title', widget: 'string' }
           - { label: 'Logo', name: 'logo', widget: image, required: false, }
-      - file: 'src/settings/menu.md'
+      - file: 'src/pages/settings/menu.md'
         label: 'Menu Settings'
         name: 'nav'
         fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "menu" }
           - label: 'Menu Items'
             label_singular: 'Menu Item'
             name: 'topLevelItems'
@@ -90,7 +92,7 @@ collections:
                 widget: 'select'
                 options: [ 'Link', 'Button' ]
                 
-      - file: "src/settings/footer.md"
+      - file: "src/pages/settings/footer.md"
         label: "Footer Settings"
         name: "footer"
         fields:

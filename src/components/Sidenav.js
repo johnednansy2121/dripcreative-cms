@@ -29,7 +29,7 @@ const Sidenav = (props) => {
                             </ul>
                             <span className="menu-toggle-sub" onClick={ props.caseToggle }>{ props.isCase ? '-' : '+' }</span>
                         </li>
-                        <li className="menu-item"><a href="/contact-us">contact us</a></li>
+                        <li className="menu-item"><a href="/contact">contact us</a></li>
                     </ul>
                 </div>
                 <div className="menu-toggle toggle-close" onClick={ props.closeToggle }><span></span></div>

@@ -8,8 +8,8 @@ import PropTypes from 'prop-types'
 import './css/bootstrap.css'
 import './css/layout.scss'
 
-const TemplateWrapper = ({ children, props, data }) => {
-  console.log(props);
+const TemplateWrapper = ({ children, general = null }) => {
+  console.log(general);
   // const { frontmatter } = data.markdownRemark
   const { title, description } = useSiteMetadata()
   return (
@@ -74,17 +74,17 @@ TemplateWrapper.propTypes = {
 
 export default TemplateWrapper
 
-// export const query = graphql`
-//   query Settings {
-//     allFile (filter: {sourceInstanceName: {eq: "settings"} name: {eq: "general"}}) {
-//       edges {
-//         node {
-//           childMarkdownRemark {
-//             frontmatter {
-//               title
-//           }
-//         }
-//       }
-//     }
-//   }
-// }`
+export const query = graphql`
+  query Settings {
+    footerData: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "footer" } } }) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              site_title
+          }
+        }
+      }
+    }
+  }
+}`
