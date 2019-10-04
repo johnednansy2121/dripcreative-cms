@@ -1,6 +1,11 @@
 import React from 'react'
 
 const Footer = class extends React.Component {
+  constructor (props) {
+    super(props);
+    this.footer = props.footer;
+  }
+
   render() {
     return (
       <footer>
@@ -8,7 +13,7 @@ const Footer = class extends React.Component {
                 <div className="row">
                     <div className="col-sm-12 col-lg-3">
                         <img className="footer-logo" src="https://dc19.dripdev.com/wp-content/themes/dc/assets/images/square-logo-dc-2.png" alt="" />
-                        <p>We deliver a complete digital service to various clients across a range of industries. Sydney based with global reach.</p>
+                        <p>{ this.footer.about }</p>
                     </div>
                     <div className="col-sm-12 col-lg-3 offset-lg-3">
                         <h2 className="block-title">Get In Touch</h2>
@@ -33,7 +38,7 @@ const Footer = class extends React.Component {
                     </div>
                 </div>
                 <div className="site-year-info">
-                    © {new Date().getFullYear()}. Drip Creative. All rights reserved.
+                    { this.footer.copyright }
                 </div>
             </div>
         </footer>

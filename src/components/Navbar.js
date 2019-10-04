@@ -1,12 +1,12 @@
 import { Link } from 'gatsby'
-import PropTypes from "prop-types"
 import React from "react"
-import logo from "../img/logo.svg"
 import Sidenav from "./Sidenav"
 
 const Navbar = class extends React.Component {
   constructor (props) {
     super(props);
+
+    this.logo = props.logo;
 
     this.state = {
       scroll: false,
@@ -68,10 +68,10 @@ const Navbar = class extends React.Component {
                 </div>
                 <div className="logo">
                   <Link to="/" className="navbar-item" title="Logo">
-                    <img src={logo} alt="DripCreative" />
+                    <img src={ (!this.logo.image.childImageSharp && this.logo.image.extension === 'svg') ? this.logo.image.publicURL : this.logo.image.childImageSharp.fluid.src } alt={ this.logo.alt } />
                   </Link>
                 </div>
-                <a href="/" className="btn btn-black btn-glass">get in touch</a>
+                <Link to="/contact" className="btn btn-black btn-glass">get in touch</Link>
             </nav>
           </div>
           <Sidenav isToggle={this.state.toggle} closeToggle={ this.closeToggle } servicesToggle={ this.servicesToggle } caseToggle={ this.caseToggle } isServices={ this.state.dropdowns.services } isCase={ this.state.dropdowns.case_study } />
@@ -79,14 +79,6 @@ const Navbar = class extends React.Component {
       </>
     )
   }
-}
-
-Navbar.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Navbar.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Navbar

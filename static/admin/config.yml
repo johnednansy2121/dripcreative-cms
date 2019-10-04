@@ -74,7 +74,17 @@ collections:
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "general" }
           - { label: 'Site title', name: 'site_title', widget: 'string' }
-          - { label: 'Logo', name: 'logo', widget: image, required: false, }
+          - { label: 'Site description', name: 'description', widget: 'text', required: false }
+          - {
+              label: "Logo Image",
+              name: "logo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Image Description", name: "alt", widget: "string" },
+                ],
+            }
       - file: 'src/pages/settings/menu.md'
         label: 'Menu Settings'
         name: 'nav'
@@ -97,15 +107,15 @@ collections:
         name: "footer"
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "footer" }
+          - { label: 'About', name: 'about', widget: 'text', required: false }
           - {
               label: "Logo Image & Tagline",
-              name: "logoImage",
+              name: "logo",
               widget: "object",
               fields:
                 [
                   { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                  { label: "Tagline", name: "tagline", widget: "string" },
+                  { label: "Image Description", name: "alt", widget: "string" },
                 ],
             }
           - {
@@ -120,4 +130,5 @@ collections:
                   { label: "Link URL", name: "linkURL", widget: "string" },
                 ],
             }
+          - { label: 'Copyright', name: 'copyright', widget: 'string', required: false }
 
