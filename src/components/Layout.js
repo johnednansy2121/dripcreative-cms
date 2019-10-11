@@ -9,7 +9,8 @@ import './css/layout.scss'
 
 const TemplateWrapper = ({ children }) => {
   
-  const { general, footer } = useSiteSettings()
+  const { general, menu, footer } = useSiteSettings() 
+  console.log('TemplateWrapper@menu', menu)
 
   return (
     <div>
@@ -30,7 +31,11 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:image" content={`${withPrefix("/")}img/og-image.jpg`} />
         
       </Helmet>
-      <Navbar logo = { general.logo }/>
+      <Navbar
+        logo = { general.logo }
+        menu = { menu.topLevelItems }
+      />
+      
       <div>
         <main>{children}</main>
       </div>

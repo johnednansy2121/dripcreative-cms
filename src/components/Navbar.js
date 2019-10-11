@@ -4,9 +4,11 @@ import Sidenav from "./Sidenav"
 
 const Navbar = class extends React.Component {
   constructor (props) {
+    console.log('Navbar@constructor', props)
     super(props);
 
     this.logo = props.logo;
+    this.menu = props.menu;
 
     this.state = {
       scroll: false,
@@ -74,7 +76,15 @@ const Navbar = class extends React.Component {
                 <Link to="/contact" className="btn btn-black btn-glass">get in touch</Link>
             </nav>
           </div>
-          <Sidenav isToggle={this.state.toggle} closeToggle={ this.closeToggle } servicesToggle={ this.servicesToggle } caseToggle={ this.caseToggle } isServices={ this.state.dropdowns.services } isCase={ this.state.dropdowns.case_study } />
+          <Sidenav
+            isToggle = {this.state.toggle}
+            closeToggle = { this.closeToggle }
+            servicesToggle = { this.servicesToggle }
+            caseToggle = { this.caseToggle }
+            isServices = { this.state.dropdowns.services }
+            isCase = { this.state.dropdowns.case_study }
+            menu = { this.menu }
+          />
         </header>
       </>
     )

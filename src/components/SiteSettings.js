@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 const useSiteSettings = () => {
-  const { general, footer } = useStaticQuery(
+  const { general, menu, footer } = useStaticQuery(
     graphql`
         query SITE_GENERAL_SETTINGS {
             general: markdownRemark(frontmatter: { templateKey: { eq: "general" } }) {
@@ -22,6 +22,15 @@ const useSiteSettings = () => {
                     }
                 }
             }
+            menu: markdownRemark(frontmatter: { templateKey: { eq: "menu" } }) {
+                frontmatter {
+                    topLevelItems{
+                        name
+                        itemType
+                        url
+                    }
+                }
+            }
             footer: markdownRemark(frontmatter: { templateKey: { eq: "footer" } }) {
                 frontmatter {
                     about
@@ -31,8 +40,9 @@ const useSiteSettings = () => {
     `
   )
   return {
-      "general": general.frontmatter,
-      "footer": footer.frontmatter
+        "general": general.frontmatter,
+        "menu": menu.frontmatter,
+        "footer": footer.frontmatter
     }
 }
 

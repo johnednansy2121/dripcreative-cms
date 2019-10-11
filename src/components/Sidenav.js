@@ -1,39 +1,47 @@
 import React from "react"
+import { Link } from 'gatsby'
 
 const Sidenav = (props) => {
+    console.log('Sidenav@props');
+   
+    const menuItems = props.menu.map((item, key) =>
+        <li className="menu-item" key={key}><Link to="{item.url}">{item.name}</Link></li>
+    );
+
     return <nav className={ `sidenav ${props.isToggle ? 'open' : ''}` }>
-                <div className="side-container">
-                    <ul className="menu">
-                        <li className="menu-item">
-                            <a href="/" aria-current="page">Home</a>
-                        </li>
-                        <li className={ `menu-item menu-sub ${props.isServices ? 'active' : ''}` }>
-                            <a href="/services/website-design-development/">Services</a>
-                            <ul className="sub-menu">
-                                <li className="menu-item"><a href="/services/website-design-development">Website Design & Development</a></li>
-                                <li className="menu-item"><a href="/services/app-design-development">App Design & Development</a></li>
-                                <li className="menu-item"><a href="/services/support-solutions">Support Solutions</a></li>
-                                <li className="menu-item"><a href="/services/automation">Automation</a></li>
-                                <li className="menu-item"><a href="/services/integrations">Integrations</a></li>
-                                <li className="menu-item"><a href="/services/onboarding-strategy">Onboarding Strategy</a></li>
-                                <li className="menu-item"><a href="/services/outsourcing">Outsourcing</a></li>
-                            </ul>
-                            <span className="menu-toggle-sub" onClick={ props.servicesToggle }>{ props.isServices ? '-' : '+' }</span>
-                        </li>
-                        {/* <li className="menu-item"><a href="/">Services</a></li> */}
-                        <li className={ `menu-item menu-sub ${props.isCase ? 'active' : ''}` }>
-                            <a href="/">Case Study</a>
-                            <ul className="sub-menu">
-                                <li className="menu-item"><a href="/case-study/attender">Attender</a></li>
-                                <li className="menu-item"><a href="/case-study/wedbooker">Wedbooker</a></li>
-                            </ul>
-                            <span className="menu-toggle-sub" onClick={ props.caseToggle }>{ props.isCase ? '-' : '+' }</span>
-                        </li>
-                        <li className="menu-item"><a href="/contact">contact us</a></li>
+        <div className="side-container">
+            <ul className="menu">
+                <li className="menu-item">
+                    <Link to="/" aria-current="page">Home</Link>
+                </li>
+                <li className={ `menu-item menu-sub ${props.isServices ? 'active' : ''}` }>
+                    <Link to="/services/website-design-development/">Services</Link>
+                    <ul className="sub-menu">
+                        <li className="menu-item"><Link to="/services/website-design-development">Website Design & Development</Link></li>
+                        <li className="menu-item"><Link to="/services/app-design-development">App Design & Development</Link></li>
+                        <li className="menu-item"><Link to="/services/support-solutions">Support Solutions</Link></li>
+                        <li className="menu-item"><Link to="/services/automation">Automation</Link></li>
+                        <li className="menu-item"><Link to="/services/integrations">Integrations</Link></li>
+                        <li className="menu-item"><Link to="/services/onboarding-strategy">Onboarding Strategy</Link></li>
+                        <li className="menu-item"><Link to="/services/outsourcing">Outsourcing</Link></li>
                     </ul>
-                </div>
-                <div className="menu-toggle toggle-close" onClick={ props.closeToggle }><span></span></div>
-            </nav>
+                    <span className="menu-toggle-sub" onClick={ props.servicesToggle }>{ props.isServices ? '-' : '+' }</span>
+                </li>
+                {/* <li className="menu-item"><Link to="/">Services</Link></li> */}
+                <li className={ `menu-item menu-sub ${props.isCase ? 'active' : ''}` }>
+                    <Link to="/">Case Study</Link>
+                    <ul className="sub-menu">
+                        <li className="menu-item"><Link to="/case-study/attender">Attender</Link></li>
+                        <li className="menu-item"><Link to="/case-study/wedbooker">Wedbooker</Link></li>
+                    </ul>
+                    <span className="menu-toggle-sub" onClick={ props.caseToggle }>{ props.isCase ? '-' : '+' }</span>
+                </li>
+                <li className="menu-item"><Link to="/contact">contact us</Link></li>
+               {menuItems}
+            </ul>
+        </div>
+        <div className="menu-toggle toggle-close" onClick={ props.closeToggle }><span></span></div>
+    </nav>
 }
 
 export default Sidenav
