@@ -4,7 +4,6 @@ import Sidenav from "./Sidenav"
 
 const Navbar = class extends React.Component {
   constructor (props) {
-    console.log('Navbar@constructor', props)
     super(props);
 
     this.logo = props.logo;
@@ -13,16 +12,12 @@ const Navbar = class extends React.Component {
     this.state = {
       scroll: false,
       toggle: false,
-      dropdowns: {
-        services: false,
-        case_study: false,
-      }
+      activeSubMenu: 0
     }
 
     this.openToggle = this.openToggle.bind(this);
     this.closeToggle = this.closeToggle.bind(this);
-    this.servicesToggle = this.servicesToggle.bind(this);
-    this.caseToggle = this.caseToggle.bind(this);
+    this.subMenuToggle = this.subMenuToggle.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
   }
 
@@ -38,20 +33,9 @@ const Navbar = class extends React.Component {
     this.setState({ toggle: false })
   }
 
-  servicesToggle = () => {
-    this.setState(prevState => ({
-      dropdowns: {
-        services: !prevState.dropdowns.services
-      }
-    }))
-  }
-
-  caseToggle = () => {
-    this.setState(prevState => ({
-      dropdowns: {
-        case_study: !prevState.dropdowns.case_study
-      }
-    }))
+  subMenuToggle(index, e) {
+    let key = (index == this.state.activeSubMenu) ? 0 : index;
+    this.setState({ activeSubMenu: key })
   }
 
   handleScroll = () => {
@@ -79,10 +63,8 @@ const Navbar = class extends React.Component {
           <Sidenav
             isToggle = {this.state.toggle}
             closeToggle = { this.closeToggle }
-            servicesToggle = { this.servicesToggle }
-            caseToggle = { this.caseToggle }
-            isServices = { this.state.dropdowns.services }
-            isCase = { this.state.dropdowns.case_study }
+            activeSubMenu = {this.state.activeSubMenu}
+            subMenuToggle = { this.subMenuToggle }
             menu = { this.menu }
           />
         </header>

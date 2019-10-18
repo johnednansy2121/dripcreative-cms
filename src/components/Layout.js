@@ -10,7 +10,6 @@ import './css/layout.scss'
 const TemplateWrapper = ({ children }) => {
   
   const { general, menu, footer } = useSiteSettings() 
-  console.log('TemplateWrapper@menu', menu)
 
   return (
     <div>
