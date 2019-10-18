@@ -5,7 +5,7 @@ const Sidenav = (props) => {
     console.log('Sidenav@props');
    
     const menuItems = props.menu.map((item, key) =>
-        <li className="menu-item" key={key}><Link to="{item.url}">{item.name}</Link></li>
+        <li className="menu-item" key={key}><Link to={item.url}>{item.name}</Link></li>
     );
 
     return <nav className={ `sidenav ${props.isToggle ? 'open' : ''}` }>
@@ -27,16 +27,6 @@ const Sidenav = (props) => {
                     </ul>
                     <span className="menu-toggle-sub" onClick={ props.servicesToggle }>{ props.isServices ? '-' : '+' }</span>
                 </li>
-                {/* <li className="menu-item"><Link to="/">Services</Link></li> */}
-                <li className={ `menu-item menu-sub ${props.isCase ? 'active' : ''}` }>
-                    <Link to="/">Case Study</Link>
-                    <ul className="sub-menu">
-                        <li className="menu-item"><Link to="/case-study/attender">Attender</Link></li>
-                        <li className="menu-item"><Link to="/case-study/wedbooker">Wedbooker</Link></li>
-                    </ul>
-                    <span className="menu-toggle-sub" onClick={ props.caseToggle }>{ props.isCase ? '-' : '+' }</span>
-                </li>
-                <li className="menu-item"><Link to="/contact">contact us</Link></li>
                {menuItems}
             </ul>
         </div>

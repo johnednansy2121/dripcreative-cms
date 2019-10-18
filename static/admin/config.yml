@@ -85,6 +85,7 @@ collections:
                   { label: "Image Description", name: "alt", widget: "string" },
                 ],
             }
+            
       - file: 'src/pages/settings/menu.md'
         label: 'Menu Settings'
         name: 'nav'
@@ -101,6 +102,17 @@ collections:
                 name: 'itemType'
                 widget: 'select'
                 options: [ 'Link', 'Button' ]
+              - label: 'Sub menus'
+                label_singular: 'Sub menu'
+                name: 'childLevelItems'
+                widget: list
+                fields:
+                  - { label: 'Display Text', name: 'name', widget: 'string' }
+                  - { label: 'URL', name: 'url', widget: 'string' }
+                  - label: 'Item Type'
+                    name: 'itemType'
+                    widget: 'select'
+                    options: [ 'Link', 'Button' ]
                 
       - file: "src/pages/settings/footer.md"
         label: "Footer Settings"

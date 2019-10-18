@@ -28,6 +28,11 @@ const useSiteSettings = () => {
                         name
                         itemType
                         url
+                        childLevelItems {
+                            name
+                            itemType
+                            url
+                        }
                     }
                 }
             }

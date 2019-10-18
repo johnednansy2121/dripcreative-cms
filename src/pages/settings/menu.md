@@ -1,12 +1,24 @@
 ---
 templateKey: menu
 topLevelItems:
-  - name: sample
+  - name: home
     itemType: Button
-    url: sample
+    url: /
 
-  - name: sample two
+  - name: services
     itemType: Button
-    url: sample
+    url: /services/website-design-development
+    childLevelItems:
+      - name: web
+        itemType: Button
+        url: /
+
+  - name: case studies
+    itemType: Button
+    url: "#"
+
+  - name: contact us
+    itemType: Button
+    url: /contact
 ---
 
