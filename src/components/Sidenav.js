@@ -2,9 +2,8 @@ import React from "react"
 import { Link } from 'gatsby'
 
 const Sidenav = (props) => {
-    console.log(props);
     const menuItems = props.menu.map((item, key) =>
-        <li className={ `menu-item ${item.childLevelItems ? 'menu-sub' : ''} ${props.activeSubMenu == key ? 'active' : ''}` } key={key}>
+        <li className={ `menu-item ${item.childLevelItems ? 'menu-sub' : ''} ${props.activeSubMenu === key ? 'active' : ''}` } key={key}>
             <Link to={item.url}>{item.name}</Link>
             {(() => {
                 if(item.childLevelItems) {
@@ -23,7 +22,7 @@ const Sidenav = (props) => {
         
         return <>
             <ul className="sub-menu">{subMenuItems}</ul>
-            <span className="menu-toggle-sub" onClick={ toggle.bind(this, childKey) }>{ toggleStatus == childKey ? '-' : '+' }</span>
+            <span className="menu-toggle-sub" onClick={ toggle.bind(this, childKey) }>{ toggleStatus === childKey ? '-' : '+' }</span>
         </>;
     }
 

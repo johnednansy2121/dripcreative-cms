@@ -8,6 +8,15 @@ const useSiteSettings = () => {
                 frontmatter {
                     site_title
                     description
+                    favicon {
+                        childImageSharp {
+                            fluid(maxWidth: 2048, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                        extension
+                        publicURL
+                    }
                     logo {
                         image {
                             childImageSharp {

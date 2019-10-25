@@ -3,14 +3,13 @@ import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import useSiteSettings from './SiteSettings'
-import { withPrefix } from "gatsby"
 import './css/bootstrap.css'
 import './css/layout.scss'
 
 const TemplateWrapper = ({ children }) => {
   
-  const { general, menu, footer } = useSiteSettings() 
-
+  const { general, menu, footer } = useSiteSettings()
+  
   return (
     <div>
       <Helmet>
@@ -27,8 +26,8 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={general.site_title} />
         <meta property="og:url" content="/" />
-        <meta property="og:image" content={`${withPrefix("/")}img/og-image.jpg`} />
-        
+        <meta property="og:image" content={ (general.favicon) ? ((!general.favicon.childImageSharp && general.favicon.extension === 'svg') ? general.favicon.publicURL : general.favicon.childImageSharp.fluid.src) : "" } />
+        <link rel="shortcut icon" href={ (general.favicon) ? ((!general.favicon.childImageSharp && general.favicon.extension === 'svg') ? general.favicon.publicURL : general.favicon.childImageSharp.fluid.src) : "" } />
       </Helmet>
       <Navbar
         logo = { general.logo }

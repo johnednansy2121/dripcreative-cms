@@ -34,7 +34,7 @@ const Navbar = class extends React.Component {
   }
 
   subMenuToggle(index, e) {
-    let key = (index == this.state.activeSubMenu) ? 0 : index;
+    let key = (index === this.state.activeSubMenu) ? 0 : index;
     this.setState({ activeSubMenu: key })
   }
 
@@ -43,6 +43,17 @@ const Navbar = class extends React.Component {
   }
 
   render() {
+    const logoObj = this.logo;
+    let logo;
+
+    if (logoObj) {
+      logo = <div className="logo">
+        <Link to="/" className="navbar-item" title="Logo">
+          <img src={ (!this.logo.image.childImageSharp && this.logo.image.extension === 'svg') ? this.logo.image.publicURL : this.logo.image.childImageSharp.fluid.src } alt={ this.logo.alt } />
+        </Link>
+      </div>;
+    }
+
     return (
       <>
         <div className={ `overlay ${this.state.toggle ? 'active' : ''}` }></div>
@@ -52,11 +63,9 @@ const Navbar = class extends React.Component {
                 <div className="menu-toggle" onClick={ this.openToggle }>
                   <span></span>
                 </div>
-                <div className="logo">
-                  <Link to="/" className="navbar-item" title="Logo">
-                    <img src={ (!this.logo.image.childImageSharp && this.logo.image.extension === 'svg') ? this.logo.image.publicURL : this.logo.image.childImageSharp.fluid.src } alt={ this.logo.alt } />
-                  </Link>
-                </div>
+
+                {logo}
+                
                 <Link to="/contact" className="btn btn-black btn-glass">get in touch</Link>
             </nav>
           </div>
