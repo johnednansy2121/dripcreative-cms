@@ -3,14 +3,13 @@ templateKey: general
 site_title: Drip Creative
 description: Drip Creative site created using Gatsby + Netlify CMS
 favicon: /img/icon.png
-logo: 
-    image: /img/logo.svg
-    alt: 'Drip Creative'
+logo:
+  alt: Drip Creative
+  image: /img/logo.svg
 css_external:
-    - name: FontAwesome
-      url: https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
-js_external:
-    - name: JQuery
-      url: https://code.jquery.com/jquery.min.js
+  - name: FontAwesome
+    url: >-
+      https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+js_external: []
 ---
 
