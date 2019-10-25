@@ -9,6 +9,10 @@ import './css/layout.scss'
 const TemplateWrapper = ({ children }) => {
   
   const { general, menu, footer } = useSiteSettings()
+
+  const css_external = general.css_external.map((css, key) => 
+    <link rel="stylesheet" href={css.url} key={key}/>
+  );
   
   return (
     <div>
@@ -17,10 +21,7 @@ const TemplateWrapper = ({ children }) => {
         <title>{general.site_title}</title>
         <meta name="description" content={general.description} />
 
-        <link
-          rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        {css_external}
 
         <meta name="theme-color" content="#fff" />
         <meta property="og:type" content="business.business" />

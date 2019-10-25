@@ -86,6 +86,13 @@ collections:
                   { label: "Image Description", name: "alt", widget: "string" },
                 ],
             }
+          - label: 'External stylesheets'
+            label_singular: 'External stylesheet'
+            name: 'css_external'
+            widget: list
+            fields:
+              - { label: 'Name', name: 'name', widget: 'string' }
+              - { label: 'Stylesheet URL', name: 'url', widget: 'string' }
             
       - file: 'src/pages/settings/menu.md'
         label: 'Menu Settings'
