@@ -93,6 +93,13 @@ collections:
             fields:
               - { label: 'Name', name: 'name', widget: 'string' }
               - { label: 'Stylesheet URL', name: 'url', widget: 'string' }
+          - label: 'External scripts'
+            label_singular: 'External script'
+            name: 'js_external'
+            widget: list
+            fields:
+              - { label: 'Name', name: 'name', widget: 'string' }
+              - { label: 'Script URL', name: 'url', widget: 'string' }
             
       - file: 'src/pages/settings/menu.md'
         label: 'Menu Settings'

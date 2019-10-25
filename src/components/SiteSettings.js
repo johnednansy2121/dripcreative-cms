@@ -33,6 +33,10 @@ const useSiteSettings = () => {
                         name
                         url
                     }
+                    js_external{
+                        name
+                        url
+                    }
                 }
             }
             menu: markdownRemark(frontmatter: { templateKey: { eq: "menu" } }) {

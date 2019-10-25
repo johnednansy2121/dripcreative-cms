@@ -10,9 +10,17 @@ const TemplateWrapper = ({ children }) => {
   
   const { general, menu, footer } = useSiteSettings()
 
-  const css_external = general.css_external.map((css, key) => 
-    <link rel="stylesheet" href={css.url} key={key}/>
-  );
+  if(general.css_external) {
+    var css_external = general.css_external.map((css, key) => 
+      <link rel="stylesheet" href={css.url} key={key}/>
+    );
+  }
+  
+  if(general.js_external) {
+    var js_external = general.js_external.map((js, key) => 
+      <script src={js.url} key={key}></script>
+    );
+  }
   
   return (
     <div>
@@ -20,15 +28,17 @@ const TemplateWrapper = ({ children }) => {
         <html lang="en" />
         <title>{general.site_title}</title>
         <meta name="description" content={general.description} />
-
-        {css_external}
-
         <meta name="theme-color" content="#fff" />
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={general.site_title} />
         <meta property="og:url" content="/" />
         <meta property="og:image" content={ (general.favicon) ? ((!general.favicon.childImageSharp && general.favicon.extension === 'svg') ? general.favicon.publicURL : general.favicon.childImageSharp.fluid.src) : "" } />
         <link rel="shortcut icon" href={ (general.favicon) ? ((!general.favicon.childImageSharp && general.favicon.extension === 'svg') ? general.favicon.publicURL : general.favicon.childImageSharp.fluid.src) : "" } />
+        
+        {css_external}
+
+        {js_external}
+
       </Helmet>
       <Navbar
         logo = { general.logo }
