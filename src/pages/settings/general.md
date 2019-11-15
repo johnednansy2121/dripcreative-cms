@@ -6,10 +6,7 @@ favicon: /img/icon.png
 logo:
   alt: Drip Creative
   image: /img/logo.svg
-styles: |-
-  .btn.btn-glass {
-      background: red;
-  }
+styles: ''
 scripts: ''
 css_external:
   - name: FontAwesome
