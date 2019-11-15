@@ -88,20 +88,28 @@ collections:
             }
           - { label: 'Custom CSS (do not include <style> tag)', name: 'styles', widget: 'text', required: false }
           - { label: 'Custom Scripts (do not include <script> tag)', name: 'scripts', widget: 'text', required: false }
-          - label: 'External stylesheets'
-            label_singular: 'External stylesheet'
-            name: 'css_external'
-            widget: list
-            fields:
-              - { label: 'Name', name: 'name', widget: 'string' }
-              - { label: 'Stylesheet URL', name: 'url', widget: 'string' }
-          - label: 'External scripts'
-            label_singular: 'External script'
-            name: 'js_external'
-            widget: list
-            fields:
-              - { label: 'Name', name: 'name', widget: 'string' }
-              - { label: 'Script URL', name: 'url', widget: 'string' }
+          - {
+              label: "External stylesheets",
+              label_singular: 'stylesheet',
+              name: "css_external",
+              widget: "list",
+              fields:
+                [
+                  { label: 'Name', name: 'name', widget: 'string' },
+                  { label: 'Stylesheet URL', name: 'url', widget: 'string' },
+                ],
+            }
+          - {
+              label: "External scripts",
+              label_singular: 'script',
+              name: "js_external",
+              widget: "list",
+              fields:
+                [
+                  { label: 'Name', name: 'name', widget: 'string' },
+                  { label: 'Script URL', name: 'url', widget: 'string' },
+                ],
+            }
             
       - file: 'src/pages/settings/menu.md'
         label: 'Menu Settings'
