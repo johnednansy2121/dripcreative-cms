@@ -6,6 +6,11 @@ about: >-
 logo:
   alt: footer-logo
   image: /img/icon.png
+socialLinks:
+  - image: /img/icon.png
+    imageAlt: '123'
+    label: '123'
+    linkURL: '123'
 copyright: © 2019. Drip Creative. All rights reserved.
 ---
 
