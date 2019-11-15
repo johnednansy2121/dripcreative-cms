@@ -57,6 +57,24 @@ const useSiteSettings = () => {
                 frontmatter {
                     about
                     copyright
+                    getInTouch
+                    socialLinks {
+                        label
+                        icon
+                        linkURL
+                    }
+                    logo {
+                        image {
+                            childImageSharp {
+                                fluid(maxWidth: 2048, quality: 100) {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                            extension
+                            publicURL
+                        }
+                        alt
+                    }
                 }
             }
         }

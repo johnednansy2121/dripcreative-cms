@@ -136,7 +136,7 @@ collections:
         name: "footer"
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "footer" }
-          - { label: 'About', name: 'about', widget: 'text', required: false }
+          - { label: 'About', name: 'about', widget: 'text' }
           - {
               label: "Logo Image & Tagline",
               name: "logo",
@@ -147,17 +147,17 @@ collections:
                   { label: "Image Description", name: "alt", widget: "string" },
                 ],
             }
+          - { label: 'Get In Touch section', name: 'getInTouch', widget: 'text' }
           - {
               label: "Social Links",
               name: "socialLinks",
               widget: "list",
               fields:
                 [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                  { label: "Label", name: "label", widget: "string" },
+                  { label: "Name", name: "label", widget: "string" },
+                  { label: "Icon", name: "icon", widget: "string" },
                   { label: "Link URL", name: "linkURL", widget: "string" },
                 ],
             }
-          - { label: 'Copyright', name: 'copyright', widget: 'string', required: false }
+          - { label: 'Copyright', name: 'copyright', widget: 'string' }
 

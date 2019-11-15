@@ -7,33 +7,30 @@ const Footer = class extends React.Component {
   }
 
   render() {
+    const socialLinks = this.footer.socialLinks.map((item, key) =>
+        <a href={ item.linkURL } target="_blank" rel="noopener noreferrer" key={ key } >
+            <i className={ item.icon }></i>
+        </a>
+    );
+
     return (
       <footer>
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-lg-3">
-                        <img className="footer-logo" src="https://dc19.dripdev.com/wp-content/themes/dc/assets/images/square-logo-dc-2.png" alt="" />
+                        <img className="footer-logo" src={ (!this.footer.logo.image.childImageSharp && this.footer.logo.image.extension === 'svg') ? this.footer.logo.image.publicURL : this.footer.logo.image.childImageSharp.fluid.src } alt={ this.footer.logo.alt } />
                         <p>{ this.footer.about }</p>
                     </div>
                     <div className="col-sm-12 col-lg-3 offset-lg-3">
                         <h2 className="block-title">Get In Touch</h2>
-                        <p><a href="mailto:hello@dripcreative.com">hello@dripcreative.com</a></p> <br />
-                        <p>Level 3, 1 Buckingham Street<br />
-                            Surry Hills<br />
-                            New South Wales, Australia
-                        </p>
+                        <p dangerouslySetInnerHTML={{__html: this.footer.getInTouch}}/>
                     </div>
                     <div className="col-sm-12 col-lg-3">
                         <h2 className="block-title">Follow Us</h2>
                         <p>Connect with us on Facebook and Instagram.</p>
                         <p>&nbsp;</p>
                         <div className="social">
-                            <a href="https://www.facebook.com/dripcreative/" target="_blank" rel="noopener noreferrer">
-                                <i className="fa fa-facebook-f"></i>
-                            </a>
-                            <a href="https://instagram.com/dripcreative/" target="_blank" rel="noopener noreferrer">
-                                <i className="fa fa-instagram"></i>
-                            </a>
+                            { socialLinks }
                         </div>
                     </div>
                 </div>

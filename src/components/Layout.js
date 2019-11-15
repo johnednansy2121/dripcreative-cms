@@ -21,7 +21,7 @@ const TemplateWrapper = ({ children }) => {
       <script src={js.url} key={key}></script>
     );
   }
-  console.log(general)
+  
   return (
     <div>
       <Helmet>
