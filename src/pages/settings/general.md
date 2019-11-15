@@ -15,5 +15,9 @@ css_external:
   - name: FontAwesome
     url: >-
       https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+js_external:
+  - name: JQuery
+    url: >-
+      https://code.jquery.com/jquery.min.js
 ---
 
