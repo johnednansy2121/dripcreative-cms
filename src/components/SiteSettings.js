@@ -29,7 +29,6 @@ const useSiteSettings = () => {
                         }
                         alt
                     }
-                    head
                     styles
                     scripts
                     css_external{

@@ -39,9 +39,9 @@ const TemplateWrapper = ({ children }) => {
 
         { js_external }
 
-        <style>{general.styles}</style>
+        <style>{ general.styles }</style>
 
-        <script>{general.scripts}</script>
+        <script>{ general.scripts }</script>
       </Helmet>
       <Navbar
         logo = { general.logo }
