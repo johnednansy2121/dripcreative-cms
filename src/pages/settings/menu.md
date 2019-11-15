@@ -3,10 +3,7 @@ templateKey: menu
 topLevelItems:
   - name: home
     url: /
-
-  - name: services
-    url: /services/website-design-development
-    childLevelItems:
+  - childLevelItems:
       - name: web design & development
         url: /services/website-design-development
       - name: app design & development
@@ -21,16 +18,18 @@ topLevelItems:
         url: /services/onboarding-strategy
       - name: outsourcing
         url: /services/outsourcing
-
-  - name: case study
-    url: "#"
-    childLevelItems:
+    name: services
+    url: /services/website-design-development
+  - childLevelItems:
       - name: attender
         url: /case-study/attender
       - name: wedbooker
         url: /case-study/wedbooker
-
+    name: case study
+    url: '#'
   - name: contact us
     url: /contact
+  - name: Test
+    url: '#'
 ---
 
