@@ -86,6 +86,8 @@ collections:
                   { label: "Image Description", name: "alt", widget: "string" },
                 ],
             }
+          - { label: 'Custom CSS (do not include <style> tag)', name: 'styles', widget: 'text', required: false }
+          - { label: 'Custom Scripts (do not include <script> tag)', name: 'scripts', widget: 'text', required: false }
           - label: 'External stylesheets'
             label_singular: 'External stylesheet'
             name: 'css_external'
@@ -114,7 +116,6 @@ collections:
               - { label: 'Display Text', name: 'name', widget: 'string' }
               - { label: 'URL', name: 'url', widget: 'string' }
               - label: 'Item Type'
-                name: 'itemType'
                 widget: 'select'
                 options: [ 'Link', 'Button' ]
               - label: 'Sub menus'
@@ -125,7 +126,6 @@ collections:
                   - { label: 'Display Text', name: 'name', widget: 'string' }
                   - { label: 'URL', name: 'url', widget: 'string' }
                   - label: 'Item Type'
-                    name: 'itemType'
                     widget: 'select'
                     options: [ 'Link', 'Button' ]
                 

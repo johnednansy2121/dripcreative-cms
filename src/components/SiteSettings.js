@@ -29,6 +29,9 @@ const useSiteSettings = () => {
                         }
                         alt
                     }
+                    head
+                    styles
+                    scripts
                     css_external{
                         name
                         url
@@ -43,11 +46,9 @@ const useSiteSettings = () => {
                 frontmatter {
                     topLevelItems{
                         name
-                        itemType
                         url
                         childLevelItems {
                             name
-                            itemType
                             url
                         }
                     }
@@ -56,6 +57,7 @@ const useSiteSettings = () => {
             footer: markdownRemark(frontmatter: { templateKey: { eq: "footer" } }) {
                 frontmatter {
                     about
+                    copyright
                 }
             }
         }
