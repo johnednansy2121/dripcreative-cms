@@ -5,7 +5,7 @@ about: >-
   industries. Sydney based with global reach.
 logo:
   alt: footer-logo
-  image: /img/icon.png
+  image: /files/icon.png
 socialLinks:
   - label: 'Facebook'
     icon: 'fa fa-facebook-f'

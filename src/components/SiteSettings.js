@@ -31,7 +31,7 @@ const useSiteSettings = () => {
                     }
                     styles
                     scripts
-                    css_external{
+                    css_external {
                         name
                         url
                         file {
@@ -39,7 +39,7 @@ const useSiteSettings = () => {
                         }
                         itemType
                     }
-                    js_external{
+                    js_external {
                         name
                         url
                     }
