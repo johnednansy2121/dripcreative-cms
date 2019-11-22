@@ -109,10 +109,12 @@ collections:
                     name: 'file',
                     widget: 'file',
                     allow_multiple: false,
+                    required: false
                   },
                   { label: 'Stylesheet URL',
                     name: 'url',
-                    widget: 'string'
+                    widget: 'string',
+                    required: false
                   },
                 ],
             }

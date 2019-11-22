@@ -34,6 +34,10 @@ const useSiteSettings = () => {
                     css_external{
                         name
                         url
+                        file {
+                            publicURL
+                        }
+                        itemType
                     }
                     js_external{
                         name
@@ -80,7 +84,7 @@ const useSiteSettings = () => {
         }
     `
   )
-  
+
   return {
         "general": general.frontmatter,
         "menu": menu.frontmatter,

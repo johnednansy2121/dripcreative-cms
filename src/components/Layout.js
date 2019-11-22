@@ -12,7 +12,7 @@ const TemplateWrapper = ({ children }) => {
 
   if(general.css_external) {
     var css_external = general.css_external.map((css, key) => 
-      <link rel="stylesheet" href={css.url} key={key}/>
+      <link rel="stylesheet" href={ css.itemType === 'Upload' ? css.file.publicURL : css.url } key={key}/>
     );
   }
   
