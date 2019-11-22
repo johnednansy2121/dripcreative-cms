@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import useSiteSettings from './SiteSettings'
+// import './css/bootstrap.css'
 // import './css/layout.scss'
 
 const TemplateWrapper = ({ children }) => {
@@ -25,7 +26,7 @@ const TemplateWrapper = ({ children }) => {
     <div>
       <Helmet>
         <html lang="en" />
-        <title>{ children.props.title ? `${ children.props.title } - ${ general.site_title }` : general.site_title }</title>
+        <title>{ (children.props !== null) ? `${ children.props.title } - ${ general.site_title }` : general.site_title }</title>
         <meta name="description" content={ general.description } />
         <meta name="theme-color" content="#fff" />
         <meta property="og:type" content="business.business" />
@@ -51,7 +52,7 @@ const TemplateWrapper = ({ children }) => {
       <div>
         <main>{children}</main>
       </div>
-
+      
       <Footer footer = { footer } />
     </div>
   )
