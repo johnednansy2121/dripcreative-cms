@@ -95,8 +95,25 @@ collections:
               widget: "list",
               fields:
                 [
-                  { label: 'Name', name: 'name', widget: 'string' },
-                  { label: 'Stylesheet URL', name: 'url', widget: 'string' },
+                  { label: 'Name',
+                    name: 'name',
+                    widget: 'string'
+                  },
+                  { label: 'File Type',
+                    name: 'itemType',
+                    widget: 'select',
+                    default: 'Upload',
+                    options: [ 'Upload', 'Link' ]
+                  },
+                  { label: 'Upload Stylesheet',
+                    name: 'file',
+                    widget: 'file',
+                    allow_multiple: false,
+                  },
+                  { label: 'Stylesheet URL',
+                    name: 'url',
+                    widget: 'string'
+                  },
                 ],
             }
           - {
