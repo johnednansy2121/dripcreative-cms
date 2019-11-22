@@ -3,8 +3,7 @@ import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import useSiteSettings from './SiteSettings'
-import './css/bootstrap.css'
-import './css/layout.scss'
+// import './css/layout.scss'
 
 const TemplateWrapper = ({ children }) => {
   
@@ -26,23 +25,24 @@ const TemplateWrapper = ({ children }) => {
     <div>
       <Helmet>
         <html lang="en" />
-        <title>{general.site_title}</title>
+        <title>{ children.props.title ? `${ children.props.title } - ${ general.site_title }` : general.site_title }</title>
         <meta name="description" content={ general.description } />
         <meta name="theme-color" content="#fff" />
         <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={ general.site_title } />
+        <meta property="og:title" content={ children.props.title ? children.props.title : general.site_title } />
         <meta property="og:url" content="/" />
         <meta property="og:image" content={ (general.favicon) ? ((!general.favicon.childImageSharp && general.favicon.extension === 'svg') ? general.favicon.publicURL : general.favicon.childImageSharp.fluid.src) : "" } />
         <link rel="shortcut icon" href={ (general.favicon) ? ((!general.favicon.childImageSharp && general.favicon.extension === 'svg') ? general.favicon.publicURL : general.favicon.childImageSharp.fluid.src) : "" } />
 
-        { css_external }
-
-        { js_external }
-
         <style>{ general.styles }</style>
 
+        { css_external }
+
         <script>{ general.scripts }</script>
+
+        { js_external }
       </Helmet>
+
       <Navbar
         logo = { general.logo }
         menu = { menu.topLevelItems }
@@ -51,6 +51,7 @@ const TemplateWrapper = ({ children }) => {
       <div>
         <main>{children}</main>
       </div>
+
       <Footer footer = { footer } />
     </div>
   )

@@ -80,6 +80,7 @@ const useSiteSettings = () => {
         }
     `
   )
+  
   return {
         "general": general.frontmatter,
         "menu": menu.frontmatter,
