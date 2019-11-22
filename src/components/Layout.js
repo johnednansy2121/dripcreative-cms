@@ -30,7 +30,7 @@ const TemplateWrapper = ({ children }) => {
         <meta name="description" content={ general.description } />
         <meta name="theme-color" content="#fff" />
         <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={ children.props.title ? children.props.title : general.site_title } />
+        <meta property="og:title" content={ (children.props !== undefined) ? `${ children.props.title } - ${ general.site_title }` : general.site_title } />
         <meta property="og:url" content="/" />
         <meta property="og:image" content={ (general.favicon) ? ((!general.favicon.childImageSharp && general.favicon.extension === 'svg') ? general.favicon.publicURL : general.favicon.childImageSharp.fluid.src) : "" } />
         <link rel="shortcut icon" href={ (general.favicon) ? ((!general.favicon.childImageSharp && general.favicon.extension === 'svg') ? general.favicon.publicURL : general.favicon.childImageSharp.fluid.src) : "" } />
