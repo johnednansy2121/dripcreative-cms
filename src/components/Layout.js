@@ -26,7 +26,7 @@ const TemplateWrapper = ({ children }) => {
     <div>
       <Helmet>
         <html lang="en" />
-        <title>{ (children.props !== null) ? `${ children.props.title } - ${ general.site_title }` : general.site_title }</title>
+        <title>{ (children.props !== undefined) ? `${ children.props.title } - ${ general.site_title }` : general.site_title }</title>
         <meta name="description" content={ general.description } />
         <meta name="theme-color" content="#fff" />
         <meta property="og:type" content="business.business" />
