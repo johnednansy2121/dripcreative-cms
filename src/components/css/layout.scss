@@ -37,6 +37,10 @@ h2 {
         letter-spacing: 0.04em;
         margin-bottom: 50px;
         max-width: 700px;
+
+        span {
+            color: $blue-pale;
+        }
     }
 
     .highlight {
@@ -150,7 +154,7 @@ input[type="button"] {
 }
 
 main {
-    margin-top: 105px;
+    margin-top: 130px;
 }
 
 .btn {

@@ -23,13 +23,13 @@ topLevelItems:
   - childLevelItems:
       - name: attender
         url: /case-study/attender
+      - name: dr mark's hygiene
+        url: /case-study/dr-marks-hygiene
       - name: wedbooker
         url: /case-study/wedbooker
-    name: case study
+    name: case studies
     url: '#'
   - name: contact us
     url: /contact
-  - name: Test
-    url: '#'
 ---
 

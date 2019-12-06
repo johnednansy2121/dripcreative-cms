@@ -25,7 +25,7 @@ h2.hero-title, h2.title {
   margin-bottom: 50px;
   max-width: 700px;
 }
-h2 .highlight {
+h2 .highlight, h2.hero-title span, h2.title span {
   color: #3582c4;
 }
 
@@ -122,7 +122,7 @@ input[type=button] .active {
 }
 
 main {
-  margin-top: 105px;
+  margin-top: 130px;
 }
 
 .btn {
