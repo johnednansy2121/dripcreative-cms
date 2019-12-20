@@ -5,10 +5,12 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Hero from '../components/Homepage/Hero'
 import Services from '../components/Homepage/Services'
+import Projects from '../components/Homepage/Projects'
 
 export const IndexPageTemplate = ({
   hero,
   services,
+  projects,
 }) => (
   <div>
 
@@ -19,6 +21,10 @@ export const IndexPageTemplate = ({
     <Services
       services = { services }
     />
+    
+    <Projects 
+      projects = { projects }
+    />
 
   </div>
 )
@@ -26,6 +32,7 @@ export const IndexPageTemplate = ({
 IndexPageTemplate.propTypes = {
   hero: PropTypes.object,
   services: PropTypes.object,
+  projects: PropTypes.object,
 }
 
 const IndexPage = ({ data }) => {
@@ -37,6 +44,7 @@ const IndexPage = ({ data }) => {
         general={frontmatter.general}
         hero={frontmatter.hero}
         services={frontmatter.services}
+        projects={frontmatter.projects}
       />
     </Layout>
   )
@@ -83,6 +91,24 @@ export const pageQuery = graphql`
             name
             description
             url
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+              extension
+              publicURL
+            }
+          }
+        }
+        projects {
+          project {
+            name
+            description
+            logo
+            url
+            button
             image {
               childImageSharp {
                 fluid(maxWidth: 2048, quality: 100) {
