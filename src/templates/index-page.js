@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Hero from '../components/Homepage/Hero'
@@ -106,7 +105,15 @@ export const pageQuery = graphql`
           project {
             name
             description
-            logo
+            logo {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+              extension
+              publicURL
+            }
             url
             button
             image {
