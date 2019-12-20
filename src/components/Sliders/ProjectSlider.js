@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Slider from "react-slick";
 import { Link } from 'gatsby';
 
@@ -51,7 +51,7 @@ const ProjectSlider = (props) => {
                 <div className="info">
                     <img src={ (!item.logo.childImageSharp && item.logo.extension === 'svg') ? item.logo.publicURL : item.logo.childImageSharp.fluid.src } className="logo" alt=""/>
                     <p className="desc">{ item.description }</p>
-                    <Link to="/case-study/wedbooker/" className="icon-arrow arrow-white btn btn-white btn-glass">
+                    <Link to={ item.url } className="icon-arrow arrow-white btn btn-white btn-glass">
                         { item.button } <img className="btn-more" src="https://dc19.dripdev.com/wp-content/themes/dc/assets/images/arrow-white.svg" alt="" />
                     </Link>
                 </div>

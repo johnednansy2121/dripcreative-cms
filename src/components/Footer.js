@@ -23,7 +23,7 @@ const Footer = class extends React.Component {
                     </div>
                     <div className="col-sm-12 col-lg-3 offset-lg-3">
                         <h2 className="block-title">Get In Touch</h2>
-                        <p dangerouslySetInnerHTML={{__html: this.footer.getInTouch}}/>
+                        <span dangerouslySetInnerHTML={{__html: this.footer.getInTouch}}/>
                     </div>
                     <div className="col-sm-12 col-lg-3">
                         <h2 className="block-title">Follow Us</h2>
