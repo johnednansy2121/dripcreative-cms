@@ -20,7 +20,7 @@ const Services = (props) => {
 
     const sideServices = services.reduce((sideServices, item, index) => {
       if (index !== 0 && index < 3) { // Whatever range condition you want
-        sideServices.push(<div className="col-sm-6 col-md-12">
+        sideServices.push(<div className="col-sm-6 col-md-12" key={ index }>
             <Link to={ item.url }>
                 <div className="item small">
                     <h3 className="title">{item.name}</h3>
@@ -35,7 +35,7 @@ const Services = (props) => {
 
     const bottomServices = services.reduce((bottomServices, item, index) => {
       if (index > 2) { // Whatever range condition you want
-        bottomServices.push(<div className="col-sm-12 col-md-6 col-lg-3">
+        bottomServices.push(<div className="col-sm-12 col-md-6 col-lg-3" key={ index }>
             <Link to={ item.url }>
                 <div className="item small">
                     <h3 className="title">{item.name}</h3>
@@ -59,12 +59,16 @@ const Services = (props) => {
                 <div className="row w-100 m-auto">
 
                     <div className="col-sm-12 col-md-8">
+                        
                         { featuredService }
+
                     </div>
 
                     <div className="col-sm-12 col-md-4">
                         <div className="row medium">
+
                             { sideServices }
+
                         </div>
                     </div>
 
