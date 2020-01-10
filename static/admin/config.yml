@@ -76,6 +76,18 @@ collections:
                 }
               ]
             }
+          - {label: Clients Section, name: clients, widget: object,
+              fields: [
+                {label: Headline, name: headline, widget: string},
+                {label: Description, name: description, widget: text},
+                {label: 'Clients', label_singular: 'Client', name: 'client', widget: list,
+                  fields: [
+                    {label: 'Client Name', name: 'name', widget: 'string'},
+                    {label: 'Logo', name: 'logo', widget: 'image'}
+                  ]
+                }
+              ]
+            }
           # - {label: Image, name: image, widget: image}
           # - {label: Heading, name: heading, widget: string}
           # - {label: Subheading, name: subheading, widget: string}

@@ -35,7 +35,7 @@ const Footer = class extends React.Component {
                     </div>
                 </div>
                 <div className="site-year-info">
-                    { this.footer.copyright }
+                    { this.footer.copyright.replace('{year}', (new Date().getFullYear())) }
                 </div>
             </div>
         </footer>

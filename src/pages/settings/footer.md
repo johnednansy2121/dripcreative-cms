@@ -13,7 +13,7 @@ socialLinks:
   - label: 'Instagram'
     icon: 'fa fa-instagram'
     linkURL: 'https://instagram.com/dripcreative/'
-copyright: © 2019. Drip Creative. All rights reserved.
+copyright: © {year}. Drip Creative. All rights reserved.
 getInTouch: |-
     <p><a href="mailto:hello@dripcreative.com">hello@dripcreative.com</a></p> <br />
     <p>Level 3, 1 Buckingham Street<br />

@@ -62,5 +62,25 @@ projects:
       image: /files/case-wedbooker.png
       url: /case-study/wedbooker
       button: Read Case Study
+clients:
+  headline: Trusted By
+  description: “The sole reason we are in business is to support our clients' success”
+  client:
+    - name: Attender
+      logo: /files/clients-attender.png
+    - name: AusFit
+      logo: /files/clients-ausfit.png
+    - name: Dr Mark's Hygenie
+      logo: /files/clients-drmarks.png
+    - name: Kandooi
+      logo: /files/clients-kandooi.png
+    - name: Propel
+      logo: /files/clients-propel.png
+    - name: Q-83
+      logo: /files/clients-q83.png
+    - name: Quill
+      logo: /files/clients-quill.png
+    - name: wedBooker
+      logo: /files/clients-wedbooker.png
 ---
 

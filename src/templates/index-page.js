@@ -5,11 +5,14 @@ import Layout from '../components/Layout'
 import Hero from '../components/Homepage/Hero'
 import Services from '../components/Homepage/Services'
 import Projects from '../components/Homepage/Projects'
+import Clients from '../components/Clients'
+import Insights from '../components/Insights'
 
 export const IndexPageTemplate = ({
   hero,
   services,
   projects,
+  clients,
 }) => (
   <div>
 
@@ -24,6 +27,13 @@ export const IndexPageTemplate = ({
     <Projects 
       projects = { projects }
     />
+    
+    <Insights/>
+    
+    <Clients 
+      clients = { clients }
+    />
+
 
   </div>
 )
@@ -32,6 +42,7 @@ IndexPageTemplate.propTypes = {
   hero: PropTypes.object,
   services: PropTypes.object,
   projects: PropTypes.object,
+  clients: PropTypes.object,
 }
 
 const IndexPage = ({ data }) => {
@@ -44,6 +55,7 @@ const IndexPage = ({ data }) => {
         hero={frontmatter.hero}
         services={frontmatter.services}
         projects={frontmatter.projects}
+        clients={frontmatter.clients}
       />
     </Layout>
   )
@@ -117,6 +129,22 @@ export const pageQuery = graphql`
             url
             button
             image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+              extension
+              publicURL
+            }
+          }
+        }
+        clients {
+          headline
+          description
+          client {
+            name
+            logo {
               childImageSharp {
                 fluid(maxWidth: 2048, quality: 100) {
                   ...GatsbyImageSharpFluid
